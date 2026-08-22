@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { lazy, Suspense, useState } from "react";
 import { ArrowUpRight, Play, ChevronDown } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import { SiteHeader } from "@/components/SiteHeader";
@@ -11,6 +11,56 @@ import { useHomePage } from "./HomePage.hooks";
 const CosmicScene = lazy(() =>
   import("@/components/cosmic/CosmicScene").then((m) => ({ default: m.CosmicScene })),
 );
+
+// The teaser only loads YouTube's player once the visitor asks for it: until
+// then this is just a thumbnail, so the home page does not pay for the embed.
+const TEASER_VIDEO_ID = "EGSUtEnfX9g";
+
+function TeaserVideo() {
+  const [playing, setPlaying] = useState(false);
+
+  if (playing) {
+    return (
+      <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/60">
+        <iframe
+          src={`https://www.youtube-nocookie.com/embed/${TEASER_VIDEO_ID}?autoplay=1&rel=0`}
+          title="Magnovite 2026 Teaser"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowFullScreen
+          className="absolute inset-0 h-full w-full"
+        />
+      </div>
+    );
+  }
+
+  return (
+    <button
+      type="button"
+      onClick={() => setPlaying(true)}
+      aria-label="Play the Magnovite 2026 teaser"
+      className="group relative mt-8 block aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/60"
+    >
+      <img
+        src={`https://i.ytimg.com/vi/${TEASER_VIDEO_ID}/maxresdefault.jpg`}
+        alt=""
+        loading="lazy"
+        className="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity group-hover:opacity-100"
+        onError={(e) => {
+          (e.target as HTMLImageElement).src = `https://i.ytimg.com/vi/${TEASER_VIDEO_ID}/hqdefault.jpg`;
+        }}
+      />
+      <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+      <span className="absolute inset-0 grid place-items-center">
+        <span className="grid size-14 place-items-center rounded-full bg-white/90 text-black transition-transform group-hover:scale-105">
+          <Play className="size-5 translate-x-[1px]" />
+        </span>
+      </span>
+      <span className="absolute inset-x-0 bottom-0 p-4 text-left text-xs tracking-[0.28em] text-white/60 uppercase">
+        Magnovite 2026 · Teaser
+      </span>
+    </button>
+  );
+}
 
 export function HomePage() {
   const { categories, gallery, hero, stats, shaan } = useHomePage();
@@ -115,19 +165,7 @@ export function HomePage() {
               </Link>
             </div>
 
-            <div className="relative mt-8 aspect-video overflow-hidden rounded-2xl border border-white/10 bg-black/60">
-              <div className="absolute inset-0 grid place-items-center">
-                <button
-                  aria-label="Play the Magnovite 2026 teaser"
-                  className="grid size-14 place-items-center rounded-full bg-white/90 text-black transition-transform hover:scale-105"
-                >
-                  <Play className="size-5 translate-x-[1px]" />
-                </button>
-              </div>
-              <div className="absolute inset-x-0 bottom-0 p-4 text-xs tracking-[0.28em] text-white/50 uppercase">
-                Magnovite 2026 · Teaser
-              </div>
-            </div>
+            <TeaserVideo />
           </div>
         </div>
       </section>
