@@ -157,8 +157,8 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "prizePool": "22K",
     "date": "16 Sept 2026",
     "fee": "₹500 per team",
-    "teamSize": "2",
-    "format": "Team",
+    "teamSize": "Individual",
+    "format": "Solo",
     "image": "/images/events/arkicraft.webp",
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSd3rK9gnk1U_X6kTgJej5CsiO5DY0Zx_3ChJj-3xISA2gUDwg/viewform?usp=dialog",
     "coordinators": [
