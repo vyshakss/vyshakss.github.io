@@ -4,7 +4,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { GLOW_VERT, GLOW_FRAG } from '../shaders';
-import { QUALITY_LADDER, QUALITY_WATCHDOG } from './CosmicScene.data';
+import { QUALITY_LADDER, QUALITY_WATCHDOG, RESIZE_HEIGHT_TOLERANCE } from './CosmicScene.data';
 
 /* ─── Star sprite texture ────────────────────────────────────────────── */
 function createStarSprite(): THREE.Texture {
@@ -235,7 +235,9 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
        bloom like the desktop does, and only a device that actually misses
        frames is walked back down. */
     let qualityLevel = 0;
+    let settleUntil = 0;
     function applyQuality() {
+      settleUntil = performance.now() + QUALITY_WATCHDOG.settleMs;
       const tier =
         QUALITY_LADDER[Math.min(qualityLevel, QUALITY_LADDER.length - 1)] ?? QUALITY_LADDER[0]!;
       const dpr = Math.min(window.devicePixelRatio || 1, tier.dprCap);
@@ -429,30 +431,97 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
     let ambientRotation = 0;
     let mouseX = 0;
     let mouseY = 0;
+    let lastScrollAt = 0;
     let disposed = false;
 
     /* ── Frame-time watchdog ── */
-    let windowFrames = 0;
+    const gaps: number[] = [];
     let windowStart = performance.now();
+    let windowDirty = false;
     let slowWindows = 0;
-    function sampleFrameRate(now: number) {
-      windowFrames++;
+    let goodWindows = 0;
+    // Indexed by rung: how many times the scene has fallen off it.
+    const demotionsFrom = new Array<number>(QUALITY_LADDER.length).fill(0);
+
+    function resetSampleWindow(now: number) {
+      gaps.length = 0;
+      windowStart = now;
+      windowDirty = false;
+    }
+
+    function medianGap() {
+      // Copied before sorting: the caller's array is reused every window, and
+      // sorting it in place would reorder nothing that matters but still costs
+      // an allocation-free surprise if this ever grows a second reader.
+      const sorted = gaps.slice().sort((a, b) => a - b);
+      const mid = sorted.length >> 1;
+      return sorted.length % 2
+        ? sorted[mid]!
+        : (sorted[mid - 1]! + sorted[mid]!) / 2;
+    }
+
+    function sampleFrameRate(now: number, frameGapMs: number) {
+      // Scrolling costs frames the renderer is not responsible for, so the rung
+      // is decided on how the scene renders at rest.
+      if (now - lastScrollAt < QUALITY_WATCHDOG.scrollGraceMs) windowDirty = true;
+      if (gaps.length < QUALITY_WATCHDOG.maxSamples) gaps.push(frameGapMs);
+
       const elapsed = now - windowStart;
       if (elapsed < QUALITY_WATCHDOG.windowMs) return;
-      const fps = (windowFrames * 1000) / elapsed;
-      windowFrames = 0;
-      windowStart = now;
-      if (qualityLevel >= QUALITY_LADDER.length - 1) return;
-      if (fps >= QUALITY_WATCHDOG.minFps) {
-        slowWindows = 0;
+
+      if (windowDirty || now <= settleUntil) {
+        resetSampleWindow(now);
         return;
       }
-      if (++slowWindows >= QUALITY_WATCHDOG.slowWindowsToDrop) {
-        slowWindows = 0;
-        qualityLevel++;
+      // Held open rather than discarded: a device rendering four frames a
+      // second would otherwise never reach a verdict at all.
+      if (gaps.length < QUALITY_WATCHDOG.minSamples) return;
+
+      // The median ignores the handful of enormous gaps a fling or a tab switch
+      // leaves behind; only a genuinely overloaded device has a slow middle
+      // frame as well.
+      const fps = 1000 / medianGap();
+      resetSampleWindow(now);
+
+      if (fps < QUALITY_WATCHDOG.minFps) {
+        goodWindows = 0;
+        if (qualityLevel >= QUALITY_LADDER.length - 1) return;
+        if (++slowWindows >= QUALITY_WATCHDOG.slowWindowsToDrop) {
+          slowWindows = 0;
+          demotionsFrom[qualityLevel] = (demotionsFrom[qualityLevel] ?? 0) + 1;
+          qualityLevel++;
+          applyQuality();
+        }
+        return;
+      }
+
+      slowWindows = 0;
+      if (fps < QUALITY_WATCHDOG.recoverFps) {
+        // Decayed rather than reset: on a device sitting just above the
+        // threshold a single mediocre window would otherwise wipe the streak
+        // every time and the rung could never be earned back.
+        goodWindows = Math.max(0, goodWindows - 1);
+        return;
+      }
+      // Comfortable for a sustained stretch: give back a rung that a rough
+      // patch took away, unless that rung has already proven it cannot hold.
+      if (qualityLevel === 0) return;
+      if ((demotionsFrom[qualityLevel - 1] ?? 0) >= QUALITY_WATCHDOG.maxDemotionsPerRung) return;
+      if (++goodWindows >= QUALITY_WATCHDOG.goodWindowsToRecover) {
+        goodWindows = 0;
+        qualityLevel--;
         applyQuality();
       }
     }
+
+    // A tab coming back from the background delivers one enormous frame gap.
+    const onVisibility = () => {
+      if (document.visibilityState === 'visible') {
+        lastFrameTime = performance.now();
+        resetSampleWindow(lastFrameTime);
+      }
+    };
+    document.addEventListener('visibilitychange', onVisibility);
 
     /* ── FOV helper ── */
     function updateCameraFov() {
@@ -478,11 +547,27 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
     // undebounced resize listener reallocates them on each of the hundreds of
     // events a window drag emits.
     let resizeTimer = 0;
+    let lastWidth = window.innerWidth;
+    let lastHeight = window.innerHeight;
     const applyResize = () => {
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      // A phone's URL bar sliding away reports a height change and nothing
+      // else. Rebuilding every render target for it stutters the scroll it
+      // was triggered by, and the canvas is stretched to the viewport in CSS,
+      // so the buffer can stay where it is.
+      const heightOnly = w === lastWidth;
+      const drift = Math.abs(h - lastHeight) / Math.max(lastHeight, 1);
+      if (heightOnly && drift < RESIZE_HEIGHT_TOLERANCE) {
+        measureScrollRange();
+        return;
+      }
+      lastWidth = w;
+      lastHeight = h;
       isMobileDevice = checkMobile();
       updateCameraFov();
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      composer.setSize(window.innerWidth, window.innerHeight);
+      renderer.setSize(w, h);
+      composer.setSize(w, h);
       applyQuality();
       measureScrollRange();
     };
@@ -504,6 +589,7 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
     bodyObserver.observe(document.body);
 
     const onScroll = () => {
+      lastScrollAt = performance.now();
       if (!introComplete) return;
       const scrollFrac = Math.min(Math.max(window.scrollY / maxScroll, 0), 1);
       // Total rotation across a full page scroll, in radians. Math.PI * 2 is
@@ -584,9 +670,10 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
     function renderFrame() {
       if (disposed) return;
       const now = performance.now();
-      const dt = Math.min((now - lastFrameTime) / 1000, 0.1);
+      const frameGapMs = now - lastFrameTime;
+      const dt = Math.min(frameGapMs / 1000, 0.1);
       lastFrameTime = now;
-      sampleFrameRate(now);
+      sampleFrameRate(now, frameGapMs);
 
       uTime.value += dt;
 
@@ -675,6 +762,7 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       window.removeEventListener('resize', onResize);
       window.removeEventListener('scroll', onScroll);
       window.removeEventListener('mousemove', onMouseMove);
+      document.removeEventListener('visibilitychange', onVisibility);
       renderer.dispose();
       galaxyGeometry.dispose();
       galaxyMaterial.dispose();
