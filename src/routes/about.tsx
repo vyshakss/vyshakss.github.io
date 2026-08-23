@@ -186,7 +186,7 @@ export function AboutPage() {
             <div className="relative mt-8 aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black">
               {isPlayingPromo ? (
                 <iframe
-                  src="https://www.youtube-nocookie.com/embed/EGSUtEnfX9g?autoplay=1&rel=0"
+                  src="https://www.youtube-nocookie.com/embed/fOL4j5uyGUk?autoplay=1&rel=0"
                   title="Magnovite 2026 Official Promo"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
@@ -198,7 +198,7 @@ export function AboutPage() {
                   onClick={() => setIsPlayingPromo(true)}
                 >
                   <img
-                    src="/images/thumbnail.jpg"
+                    src="/images/teaser-thumbnail.jpg"
                     alt="Magnovite 2026 Promo Thumbnail"
                     className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
                   />

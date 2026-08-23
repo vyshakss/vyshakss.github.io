@@ -41,13 +41,10 @@ function TeaserVideo() {
       className="group relative mt-8 block aspect-video w-full overflow-hidden rounded-2xl border border-white/10 bg-black/60"
     >
       <img
-        src={`https://i.ytimg.com/vi/${TEASER_VIDEO_ID}/maxresdefault.jpg`}
+        src="/images/teaser-thumbnail.jpg"
         alt=""
         loading="lazy"
         className="absolute inset-0 h-full w-full object-cover opacity-85 transition-opacity group-hover:opacity-100"
-        onError={(e) => {
-          (e.target as HTMLImageElement).src = `https://i.ytimg.com/vi/${TEASER_VIDEO_ID}/hqdefault.jpg`;
-        }}
       />
       <span className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
       <span className="absolute inset-0 grid place-items-center">
