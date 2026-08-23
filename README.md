@@ -2,12 +2,6 @@
 
 # MAGNOVITE 2026
 
-**A cinematic, scroll-driven cosmic experience for the 16th edition of MAGNOVITE —
-the flagship fest of CHRIST (Deemed to be University), Kengeri Campus.**
-
-50 national battlegrounds · ₹11L prize pool · Live concert by Shaan Rahman
-16 September 2026
-
 </div>
 
 ---
