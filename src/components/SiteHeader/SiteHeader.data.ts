@@ -3,6 +3,7 @@ export const NAV = [
   { label: "Events", href: "/events" },
   { label: "About", href: "/about" },
   { label: "Gallery", href: "/gallery" },
+  { label: "Rules and Regulations", href: "/rules" },
 ];
 
 export const MEGA_LINKS = [
@@ -10,6 +11,7 @@ export const MEGA_LINKS = [
   { num: "02", label: "Events", href: "/events" },
   { num: "03", label: "About", href: "/about" },
   { num: "04", label: "Gallery", href: "/gallery" },
+  { num: "05", label: "Rules and Regulations", href: "/rules" },
 ];
 
 export const ASSETS = {

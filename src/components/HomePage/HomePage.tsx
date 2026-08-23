@@ -14,7 +14,7 @@ const CosmicScene = lazy(() =>
 
 // The teaser only loads YouTube's player once the visitor asks for it: until
 // then this is just a thumbnail, so the home page does not pay for the embed.
-const TEASER_VIDEO_ID = "EGSUtEnfX9g";
+const TEASER_VIDEO_ID = "fOL4j5uyGUk";
 
 function TeaserVideo() {
   const [playing, setPlaying] = useState(false);

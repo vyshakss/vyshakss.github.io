@@ -13,6 +13,7 @@ import { Route as IndexRouteImport } from './routes/index'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as EventsRouteImport } from './routes/events'
 import { Route as GalleryRouteImport } from './routes/gallery'
+import { Route as RulesRouteImport } from './routes/rules'
 import { Route as EventsSlugRouteImport } from './routes/events_.$slug'
 
 const IndexRoute = IndexRouteImport.update({
@@ -35,6 +36,11 @@ const GalleryRoute = GalleryRouteImport.update({
   path: '/gallery',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RulesRoute = RulesRouteImport.update({
+  id: '/rules',
+  path: '/rules',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const EventsSlugRoute = EventsSlugRouteImport.update({
   id: '/events_/$slug',
   path: '/events/$slug',
@@ -46,6 +52,7 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/rules': typeof RulesRoute
   '/events/$slug': typeof EventsSlugRoute
 }
 export interface FileRoutesByTo {
@@ -53,6 +60,7 @@ export interface FileRoutesByTo {
   '/about': typeof AboutRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/rules': typeof RulesRoute
   '/events/$slug': typeof EventsSlugRoute
 }
 export interface FileRoutesById {
@@ -61,14 +69,23 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/events': typeof EventsRoute
   '/gallery': typeof GalleryRoute
+  '/rules': typeof RulesRoute
   '/events_/$slug': typeof EventsSlugRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/events' | '/gallery' | '/events/$slug'
+  fullPaths:
+    '/' | '/about' | '/events' | '/gallery' | '/rules' | '/events/$slug'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/events' | '/gallery' | '/events/$slug'
-  id: '__root__' | '/' | '/about' | '/events' | '/gallery' | '/events_/$slug'
+  to: '/' | '/about' | '/events' | '/gallery' | '/rules' | '/events/$slug'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/events'
+    | '/gallery'
+    | '/rules'
+    | '/events_/$slug'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -76,6 +93,7 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   EventsRoute: typeof EventsRoute
   GalleryRoute: typeof GalleryRoute
+  RulesRoute: typeof RulesRoute
   EventsSlugRoute: typeof EventsSlugRoute
 }
 
@@ -109,6 +127,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof GalleryRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/rules': {
+      id: '/rules'
+      path: '/rules'
+      fullPath: '/rules'
+      preLoaderRoute: typeof RulesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/events_/$slug': {
       id: '/events_/$slug'
       path: '/events/$slug'
@@ -124,6 +149,7 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   EventsRoute: EventsRoute,
   GalleryRoute: GalleryRoute,
+  RulesRoute: RulesRoute,
   EventsSlugRoute: EventsSlugRoute,
 }
 export const routeTree = rootRouteImport
