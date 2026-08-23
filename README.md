@@ -1,603 +1,175 @@
-# Cosmic Reveal
+<div align="center">
 
-## Runtime Requirements
+# MAGNOVITE 2026
 
-- Node.js `>=20.19.0` (recommended: Node 20 LTS or newer)
+**A cinematic, scroll-driven cosmic experience for the 16th edition of MAGNOVITE —
+the flagship fest of CHRIST (Deemed to be University), Kengeri Campus.**
 
-If you use `nvm`, run:
+50 national battlegrounds · ₹11L prize pool · Live concert by Shaan Rahman
+16 September 2026
 
-```bash
-nvm install
-nvm use
+</div>
+
+---
+
+## What this is
+
+Not a conventional fest website. The whole site is one continuous cosmic scene rendered
+in WebGL, and the page content lives _inside_ it.
+
+The opening sequence tells a single visual story:
+
+```
+PULSAR  →  DETONATION  →  MAGNOVITE 2026  →  EXPANSION  →  BUTTERFLY SWARM  →  COSMIC DUST  →  THE SITE
 ```
 
-Redesign the MAGNOVITE 2026 website as a cinematic, scroll-driven cosmic experience.
+A dense white pulsar charges and holds its breath, detonates into a shockwave of debris,
+resolves into the MAGNOVITE wordmark, then scatters into a swarm of MAGNOVITE butterfly
+particles that slowly accrete into the galaxy of dust that becomes the permanent
+background. That dust field never resets — scrolling from the hero through About,
+Main Stage, Events and Gallery drives one continuous camera journey deeper into the
+same cloud.
 
-The existing project is a Vite + TypeScript website. Keep the existing content, pages, images, navigation, countdown, event information, Shan Rahman section, competitions, about section, etc., but completely rethink the visual experience and transitions.
+**Design rules the implementation holds to**
 
-CORE CONCEPT
+- One particle system for the entire site. No per-section backgrounds, no fade-to-new-starfield.
+- Monochrome palette only — white, silver, soft grey, warm highlights, black space. No neon nebulae.
+- Content cards are translucent dark glass with thin borders, so the environment stays dominant.
+- The header stays out of the way during the opening and reveals itself once the dust settles.
 
-The website begins with a full-screen cinematic pulsar/neutron-star explosion inspired by the opening seconds of this reference:
+## Tech stack
 
-YouTube reference — pulsar explosion
+| Layer   | Choice                                                                                            |
+| ------- | ------------------------------------------------------------------------------------------------- |
+| Build   | Vite 8 + TypeScript                                                                               |
+| UI      | React 19, TanStack Router (file-based routes)                                                     |
+| Styling | Tailwind CSS 4, Radix UI primitives, `lucide-react` icons                                         |
+| 3D      | Three.js 0.185 — `BufferGeometry` point clouds, custom GLSL, `EffectComposer` + `UnrealBloomPass` |
+| Deploy  | Static build → GitHub Pages (`.github/workflows/static.yml`)                                      |
 
-Do NOT simply embed the YouTube video as the background.
+## Getting started
 
-Recreate the visual effect using WebGL / Three.js / shaders / particles where practical, so that the explosion can be synchronized with the website animation and scroll.
+Requires **Node.js `>=20.19.0`** (Node 20 LTS or newer).
 
-The experience should feel like:
+```bash
+nvm install && nvm use     # optional, respects .nvmrc
 
-PULSAR → EXPLOSION → MAGNOVITE LOGO → SECOND EXPLOSION → MILLIONS OF MAGNOVITE BUTTERFLIES → DUST CLOUD → WEBSITE
-
-1. FIRST SCREEN — THE PULSAR
-
-The very first page must be a completely immersive full-screen scene.
-
-There should initially be:
-
-Almost completely black space
-
-A small, extremely bright pulsar/star in the center
-
-Subtle atmospheric glow
-
-Very faint particles around it
-
-No conventional website hero content initially
-
-Header/navigation should either be hidden initially or extremely subtle
-
-The pulsar should feel dense, energetic and physical, not like a simple glowing CSS circle.
-
-Slowly build tension.
-
-The pulsar should begin to pulse.
-
-The glow should intensify.
-
-Then:
-
-FIRST EXPLOSION
-
-The pulsar suddenly erupts outward.
-
-Create:
-
-Radial energy
-
-Thousands of particles
-
-Shockwave
-
-Dust
-
-Gas
-
-Bright central flash
-
-Expanding debris
-
-Volumetric-looking particles
-
-Motion blur
-
-Depth
-
-The explosion should feel similar in energy and cinematic timing to the reference video.
-
-Do not make it look like fireworks.
-
-It should look like an astronomical stellar explosion.
-
-2. MAGNOVITE 2026 APPEARS
-
-At the peak of the first explosion, the screen should briefly become extremely bright.
-
-As the brightness settles, reveal:
-
-MAGNOVITE
-
-followed by:
-
-2026
-
-The existing new MAGNOVITE butterfly logo must be used.
-
-VERY IMPORTANT
-
-Use the NEW butterfly logo from the existing website/assets.
-
-The butterfly must be the exact same shape/design as the butterfly currently positioned above the MAGNOVITE wordmark in the supplied screenshots.
-
-Do NOT:
-
-generate generic butterfly silhouettes
-
-use old MAGNOVITE butterfly versions
-
-substitute another butterfly icon
-
-use random SVG butterflies
-
-Extract/use the actual existing logo asset or a clean vector version of that exact logo.
-
-The butterfly above the wordmark and every butterfly used in the particle animation must visually originate from the same logo shape.
-
-3. SECOND EXPLOSION — BUTTERFLY TRANSFORMATION
-
-After MAGNOVITE 2026 has appeared and held on screen for a moment, trigger a second major explosion.
-
-This is the signature moment of the website.
-
-The MAGNOVITE logo/particles should explode outward.
-
-Then the expanding dust should begin transforming into millions of tiny MAGNOVITE butterfly particles.
-
-Think of the entire screen becoming a gigantic swarm of butterflies.
-
-Butterfly particle behaviour
-
-Each particle should use the actual new MAGNOVITE butterfly shape.
-
-The butterflies should:
-
-Start inside / around the explosion
-
-Expand outward
-
-Have different scales
-
-Have different depths
-
-Move at different velocities
-
-Have subtle rotation
-
-Have slight natural fluttering/orientation changes
-
-Produce a dense volumetric swarm
-
-Move in 3D space rather than simply across a 2D plane
-
-The animation should contain hundreds of thousands / millions of visual butterfly particles where performance permits.
-
-Do not literally create millions of independent DOM elements.
-
-Use:
-
-Three.js
-
-Instanced rendering
-
-GPU particles
-
-shaders
-
-sprite textures
-
-WebGL
-
-or another GPU-efficient approach.
-
-The visual result matters more than the implementation.
-
-4. BUTTERFLIES BECOME THE DUST CLOUD
-
-This is extremely important.
-
-The butterflies should not disappear suddenly.
-
-Their movement should gradually slow down.
-
-They should begin dispersing and merging into a massive cosmic dust field.
-
-Eventually:
-
-BUTTERFLIES → PARTICLES → DUST CLOUD
-
-The dust cloud then becomes the permanent visual environment of the website.
-
-The transition should feel like the butterflies have physically transformed into cosmic matter.
-
-5. THE DUST CLOUD BECOMES THE WEBSITE BACKGROUND
-
-Once the opening animation finishes, keep the resulting dust cloud alive permanently.
-
-This is NOT a transition to another static background.
-
-The same dust cloud must remain behind every subsequent page.
-
-The user should feel like they are continuously travelling through the same cosmic environment.
-
-The dust cloud should:
-
-Slowly move
-
-Have depth
-
-Have subtle parallax
-
-Have extremely slow particle drift
-
-Maintain its original color palette
-
-Maintain its density
-
-Never suddenly change into another color
-
-Never reset between sections
-
-COLOR CONSISTENCY
-
-Preserve the exact visual character established during the butterfly/dust transformation.
-
-The cloud should remain predominantly:
-
-white
-
-silver
-
-soft grey
-
-subtle warm highlights where naturally present
-
-black surrounding space
-
-Do not introduce random blue/purple/green nebula colors.
-
-The dust cloud should feel like the physical remains of the opening explosion.
-
-6. SCROLL = CAMERA TRAVEL
-
-This is one of the most important requirements.
-
-Scrolling through the website should NOT feel like:
-
-section 1 → section 2 → section 3
-
-Instead, it should feel like:
-
-the camera is continuously travelling deeper into the same cosmic dust cloud.
-
-As the user scrolls:
-
-Camera slowly moves forward
-
-Dust particles pass around the viewer
-
-Depth increases
-
-Particle parallax becomes visible
-
-Some particles move toward the camera
-
-Others remain far away
-
-The camera gently shifts horizontally/vertically
-
-The cloud remains the same physical environment
-
-The movement must be smooth and cinematic.
-
-Use scroll progress to control the camera.
-
-Prefer:
-
-requestAnimationFrame
-
-interpolation / lerping
-
-scroll velocity
-
-smooth damping
-
-Three.js camera movement
-
-rather than abrupt CSS section transitions.
-
-7. EXISTING WEBSITE CONTENT SHOULD LIVE INSIDE THIS WORLD
-
-Keep the existing pages/content shown in the supplied screenshots.
-
-The sections include:
-
-Section 1
-
-Cinematic opening
-
-Section 2
-
-MAGNOVITE 2026 identity / countdown
-
-Section 3
-
-Introduction / MAGNOVITE description
-
-Use the supplied existing content and imagery.
-
-Section 4
-
-Main-stage / Shaan Rahman showcase
-
-Keep the existing Shaan Rahman image and information.
-
-Section 5
-
-34+ National Battlegrounds
-
-Keep the existing categories:
-
-Coding & AI
-
-Robotics & Tech
-
-Management & Pitch
-
-Music & Vocal
-
-Dance & Theater
-
-Gaming & Design
-
-Keep the existing statistics and event information.
-
-Section 6+
-
-Continue with the existing pages/content such as:
-
-About
-
-Events
-
-Gallery
-
-Other existing website sections
-
-Do not remove existing content merely to implement the animation.
-
-8. CONTENT CARDS SHOULD FEEL LIKE THEY ARE INSIDE THE CLOUD
-
-The existing black cards are good, but make them feel more integrated into the environment.
-
-Use:
-
-translucent dark glass
-
-subtle blur
-
-extremely thin borders
-
-soft white highlights
-
-subtle shadows
-
-very restrained gradients
-
-Do NOT make them excessively glossy or colorful.
-
-The cosmic environment remains the dominant visual.
-
-The UI should feel premium and cinematic.
-
-9. SHAN RAHMAN SECTION
-
-When the user reaches the Shaan Rahman section, the camera should already have travelled noticeably deeper into the dust cloud.
-
-The dust should now appear closer and more immersive.
-
-Some particles should pass in front of the content card.
-
-The card itself should remain readable.
-
-Do not replace the existing Shaan Rahman content.
-
-Instead, make the content feel like it is floating inside the same universe.
-
-10. EVENT SECTION
-
-When reaching the 34+ National Battlegrounds section, continue the same camera journey.
-
-The dust cloud must remain the same color and visual identity.
-
-Do not restart the particle system.
-
-Do not fade to a new background.
-
-Do not change to a different star field.
-
-The user should be able to scroll from:
-
-Shaan Rahman → Events → About → Gallery
-
-and feel that they are travelling through one continuous cosmic scene.
-
-11. HEADER
-
-Keep the existing header:
-
-New MAGNOVITE butterfly logo
-
-CHRIST University logo
-
-hamburger menu
-
-However, during the opening cinematic:
-
-hide or minimize the header initially.
-
-Let the pulsar/explosion have the entire screen.
-
-After the butterfly transformation begins settling into the dust cloud, elegantly reveal the navigation.
-
-12. OPENING ANIMATION MUST BE SCROLL-AWARE
-
-Ideally the opening sequence should be connected to scroll progress.
-
-For example:
-
-0% — black space / pulsar
-
-10% — pulsar begins pulsing
-
-20% — energy builds
-
-30% — first explosion
-
-40% — MAGNOVITE 2026 appears
-
-50% — second explosion
-
-60% — butterfly swarm
-
-70% — butterflies become dust
-
-80% — camera enters dust cloud
-
-100% — first content section
-
-These percentages are conceptual. Adjust them to make the animation cinematic.
-
-The user should also be able to experience the opening naturally without requiring extremely fast scrolling.
-
-13. PERFORMANCE
-
-This animation is expected to contain a huge number of particles.
-
-Do NOT implement it using thousands/millions of HTML elements.
-
-Use GPU rendering.
-
-Prefer:
-
-Three.js
-
-WebGL
-
-InstancedMesh
-
-custom shaders
-
-particle buffers
-
-texture atlases
-
-GPU interpolation
-
-Add adaptive quality based on device performance.
-
-For powerful desktop GPUs:
-
-maximum particle density
-
-For weaker machines:
-
-progressively reduce particle count while preserving the visual illusion.
-
-The website must remain responsive.
-
-14. IMPORTANT: DO NOT BREAK THE EXISTING WEBSITE
-
-Before modifying anything:
-
-Inspect the entire existing project.
-
-Identify all existing pages.
-
-Identify all existing assets.
-
-Identify the exact new MAGNOVITE butterfly logo asset.
-
-Identify the existing particle implementation.
-
-Identify the existing countdown.
-
-Identify the existing page navigation.
-
-Identify the existing images used in each section.
-
-Then integrate the cinematic system rather than blindly replacing everything.
-
-Preserve the existing content and functionality.
-
-15. MOST IMPORTANT VISUAL RULE
-
-The website must tell one continuous visual story:
-
-A STAR EXPLODES
-
-↓
-
-MAGNOVITE 2026 IS REVEALED
-
-↓
-
-THE UNIVERSE EXPLODES AGAIN
-
-↓
-
-THE EXPLOSION BECOMES MILLIONS OF THE NEW MAGNOVITE BUTTERFLIES
-
-↓
-
-THE BUTTERFLIES BECOME COSMIC DUST
-
-↓
-
-THE DUST BECOMES THE PERMANENT WEBSITE ENVIRONMENT
-
-↓
-
-THE USER TRAVELS DEEPER INTO THAT SAME CLOUD WHILE SCROLLING
-
-↓
-
-ALL WEBSITE CONTENT EXISTS INSIDE THAT SAME UNIVERSE
-
-This continuity is more important than adding extra visual effects.
-
-Do not make every section look like a separate webpage.
-
-It must feel like one enormous cinematic experience.
-
-FINAL QUALITY BAR
-
-The result should feel closer to a cinematic interactive experience / award-winning event website than a conventional college fest website.
-
-Think:
-
-NASA-scale cosmic visuals + premium festival branding + Apple-style restraint + WebGL interactive storytelling.
-
-Avoid:
-
-generic star backgrounds
-
-random glowing gradients
-
-generic butterfly icons
-
-excessive neon
-
-excessive animations on cards
-
-abrupt section transitions
-
-different backgrounds for different sections
-
-cheap particle effects
-
-2D-looking explosions
-
-The pulsar → explosion → butterfly → dust → camera travel sequence should be the defining feature of the entire website.
-
-these images are the original website, i want you to change them
-
-## Development
-
-Prefer working locally? You need Node.js and npm — [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating).
-
-```sh
 git clone <this-repository-url>
-cd <repository-name>
+cd cosmic-reveal-main
 npm i
 npm run dev
 ```
+
+| Script            | What it does                                      |
+| ----------------- | ------------------------------------------------- |
+| `npm run dev`     | Vite dev server with HMR                          |
+| `npm run build`   | Production build, then `postbuild.js` (see below) |
+| `npm run preview` | Serve the built `dist/` locally                   |
+| `npm run lint`    | ESLint across the repo                            |
+| `npm run format`  | Prettier write                                    |
+
+## Project structure
+
+```
+src/
+├── routes/                  TanStack file-based routes
+│   ├── __root.tsx           Shell: header, cosmic canvas mount, outlet
+│   ├── index.tsx            Home — the cinematic sequence + all sections
+│   ├── about.tsx
+│   ├── events.tsx           Event catalogue
+│   ├── events_.$slug.tsx    Per-event detail page (50 slugs)
+│   └── gallery.tsx
+├── components/
+│   ├── cosmic/
+│   │   ├── CosmicScene/     The entire WebGL sequence (see below)
+│   │   └── shaders.ts       GLSL for the core glow / bloom quad
+│   ├── HomePage/            Section markup + all homepage copy in .data.ts
+│   ├── Countdown/           Countdown to 2026-09-16T09:00+05:30
+│   ├── SiteHeader/          Butterfly logo, CHRIST logo, hamburger nav
+│   └── ui/                  Radix-based primitives
+├── data/eventsData.ts       Single source of truth for all 50 events
+└── lib/                     Error capture + reporting, utils
+
+public/
+├── logos/                   magnovite-butterfly.png ← the butterfly used everywhere
+├── images/                  Section art, Shaan Rahman posters, per-event covers
+├── models/hero.glb
+└── BROCHURE.pdf
+```
+
+Every component folder follows the same convention: `X.tsx` (markup),
+`X.data.ts` (content/constants), `X.hooks.ts` (behaviour), `index.ts` (barrel).
+**Copy changes almost always belong in a `.data.ts` file, not in JSX.**
+
+## The cosmic scene
+
+`src/components/cosmic/CosmicScene/CosmicScene.hooks.ts` is the heart of the site.
+
+**Geometry.** One galaxy is generated up front — spiral arm particles, a dense core, and
+a background star field — each vertex carrying a scatter direction and per-particle random
+values. The intro plays that generation _in reverse_: particles start collapsed at the
+pulsar, blow outward along their scatter vectors, then accrete back into the galaxy.
+
+**Pacing.** A single `uProgress` uniform (0 → 1) drives everything. `introSpeed()` advances
+it at different rates per beat so the sequence has rhythm rather than a linear ramp:
+
+| Progress    | Beat                                      | Rate        |
+| ----------- | ----------------------------------------- | ----------- |
+| 0.00 – 0.14 | Charge — the pulsar builds                | 0.20        |
+| 0.14 – 0.18 | Anticipation — the inhale before the bang | 0.09        |
+| 0.18 – 0.34 | Detonation                                | 0.62        |
+| 0.34 – 0.62 | Expansion — debris drifts outward         | 0.30        |
+| 0.62 – 1.00 | Accretion — decelerating into the galaxy  | 0.22 → 0.12 |
+
+**Glow.** Three overlapping lifetimes are summed rather than branched on: the star _seed_
+that carries the charge, the _flash_ that consumes it at detonation, and the _galactic core_
+that reassembles at the end. Each hands off to the next with no explicit phase state. The
+resting core is deliberately dim — it sits directly behind the white hero copy, and a hotter
+bulge costs text legibility.
+
+**Scroll.** Once the intro completes, `uProgress` pins at 1.0 and `window.scrollY` takes over,
+mapping page position to a full 2π rotation of the field with damped interpolation. The intro
+plays once per session (`globalHasPlayedIntro`); returning to the home route resumes at the
+settled dust rather than replaying the explosion.
+
+**Performance.** Particle budgets switch on device class and DPR is capped on mobile:
+
+|         | Arms   | Core   | Background |
+| ------- | ------ | ------ | ---------- |
+| Desktop | 65,000 | 55,000 | 50,000     |
+| Mobile  | 25,000 | 25,000 | 20,000     |
+
+All 170k desktop particles live in two `BufferGeometry` point clouds — no per-particle DOM,
+no per-frame allocation. `document.scrollHeight` is read once and cached rather than inside
+the scroll handler, which would otherwise force a synchronous layout flush on every event.
+`CosmicScene` is lazy-loaded so first paint doesn't wait on Three.js.
+
+## Content
+
+**Events.** `src/data/eventsData.ts` holds all 50 events — slug, description, rounds, rules,
+FAQs, prize pool, date, fee, team size, image, registration link and coordinators. Both the
+catalogue and the detail pages read from it, and the build derives its routes from it.
+
+**Homepage copy.** `src/components/HomePage/HomePage.data.ts` — meta tags, hero strings,
+the six battleground categories, stats, gallery entries, Shaan Rahman block.
+
+**Countdown.** Target timestamp lives in `src/components/Countdown/Countdown.data.ts`.
+
+## Build & deploy
+
+`npm run build` runs Vite, then `postbuild.js`, which:
+
+1. Parses every `"slug"` out of `eventsData.ts` and **fails the build if it finds none** —
+   a reformat that unquotes those keys would otherwise ship a site with zero event routes.
+2. Writes `dist/<route>/index.html` for each route so GitHub Pages serves deep links directly.
+3. Copies `index.html` to `dist/404.html` as the SPA fallback.
+4. Injects a `modulepreload` hint for the `CosmicScene-*.js` chunk.
+
+Pushing to `main` triggers `.github/workflows/static.yml`, which uploads `dist/` to
+GitHub Pages. `static-site/` holds the earlier pre-React static build, kept for reference.
+
+## Browser support
+
+Requires WebGL2. Desktop Chrome, Edge, Firefox and Safari 15+, plus modern mobile Safari
+and Chrome. The site remains readable without the canvas — content sits above it in normal
+document flow, so a failed WebGL context degrades to the dark layout rather than a blank page.
