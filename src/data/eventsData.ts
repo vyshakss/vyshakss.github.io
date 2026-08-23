@@ -145,7 +145,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       }
     ],
     "rules": [
-      "The competition is strictly individual; collaboration during the round is not permitted.",
+      "The competition is a two person team event.",
       "Only AutoCAD (as provided in the lab) may be used; use of any other design software is not allowed.",
       "Reference material, internet access, and pre-made templates/blocks are not permitted during the round.",
       "The design brief will be disclosed only at the start of the event.",
@@ -156,9 +156,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "faqs": [],
     "prizePool": "22K",
     "date": "16 Sept 2026",
-    "fee": "₹500 per person",
-    "teamSize": "Individual",
-    "format": "Solo",
+    "fee": "₹500 per team",
+    "teamSize": "2",
+    "format": "Team",
     "image": "/images/events/arkicraft.webp",
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSd3rK9gnk1U_X6kTgJej5CsiO5DY0Zx_3ChJj-3xISA2gUDwg/viewform?usp=dialog",
     "coordinators": [
