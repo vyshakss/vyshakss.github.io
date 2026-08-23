@@ -217,9 +217,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSc65v6inFjiO8l4TDoU8rXNRjPNZLLi07flASttEsurC5m6cw/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Bhavya Somashekhar",
-        "phone": "9251116547",
-        "email": "bhavya.somashekhar@btech.christuniversity.in",
+        "name": "Blessing Roshan",
+        "phone": "7810008415",
+        "email": "blessing.roshan@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
