@@ -4,6 +4,7 @@ import { EffectComposer } from 'three/examples/jsm/postprocessing/EffectComposer
 import { RenderPass } from 'three/examples/jsm/postprocessing/RenderPass.js';
 import { UnrealBloomPass } from 'three/examples/jsm/postprocessing/UnrealBloomPass.js';
 import { GLOW_VERT, GLOW_FRAG } from '../shaders';
+import { QUALITY_LADDER, QUALITY_WATCHDOG } from './CosmicScene.data';
 
 /* ─── Star sprite texture ────────────────────────────────────────────── */
 function createStarSprite(): THREE.Texture {
@@ -49,9 +50,9 @@ const DESKTOP_PARAMS: GalaxyParams = {
 };
 
 const MOBILE_PARAMS: GalaxyParams = {
-  armParticles: 25000,
-  coreParticles: 25000,
-  bgStars: 20000,
+  armParticles: 36000,
+  coreParticles: 32000,
+  bgStars: 26000,
   arms: 2,
   armSpread: 0.75,
   radius: 8.0,
@@ -209,7 +210,6 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       powerPreference: 'high-performance',
     });
     renderer.setSize(window.innerWidth, window.innerHeight);
-    renderer.setPixelRatio(isMobileDevice ? 1.0 : Math.min(window.devicePixelRatio, 2));
     renderer.outputColorSpace = THREE.SRGBColorSpace;
     renderer.toneMapping = THREE.ACESFilmicToneMapping;
     renderer.toneMappingExposure = 1.0;
@@ -226,7 +226,30 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       new THREE.Vector2(window.innerWidth / 2, window.innerHeight / 2),
       0.3, 0.5, 0.82
     );
-    if (!isMobileDevice) composer.addPass(bloomPass);
+    // Always in the chain. `enabled` decides whether it runs, so the quality
+    // watchdog can drop and never has to rebuild the pass chain mid-flight.
+    composer.addPass(bloomPass);
+
+    /* ── Adaptive quality ──────────────────────────────────────────────
+       One ladder for every device: phones get full-resolution sprites and
+       bloom like the desktop does, and only a device that actually misses
+       frames is walked back down. */
+    let qualityLevel = 0;
+    function applyQuality() {
+      const tier =
+        QUALITY_LADDER[Math.min(qualityLevel, QUALITY_LADDER.length - 1)] ?? QUALITY_LADDER[0]!;
+      const dpr = Math.min(window.devicePixelRatio || 1, tier.dprCap);
+      renderer.setPixelRatio(dpr);
+      // EffectComposer caches the pixel ratio it was constructed with, so its
+      // targets stay at the old resolution unless it is told separately.
+      composer.setPixelRatio(dpr);
+      bloomPass.enabled = tier.bloom;
+      bloomPass.setSize(
+        Math.max(1, Math.floor(window.innerWidth / tier.bloomDivisor)),
+        Math.max(1, Math.floor(window.innerHeight / tier.bloomDivisor)),
+      );
+    }
+    applyQuality();
 
     /* ── Galaxy particles ── */
     const starSprite = createStarSprite();
@@ -408,6 +431,29 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
     let mouseY = 0;
     let disposed = false;
 
+    /* ── Frame-time watchdog ── */
+    let windowFrames = 0;
+    let windowStart = performance.now();
+    let slowWindows = 0;
+    function sampleFrameRate(now: number) {
+      windowFrames++;
+      const elapsed = now - windowStart;
+      if (elapsed < QUALITY_WATCHDOG.windowMs) return;
+      const fps = (windowFrames * 1000) / elapsed;
+      windowFrames = 0;
+      windowStart = now;
+      if (qualityLevel >= QUALITY_LADDER.length - 1) return;
+      if (fps >= QUALITY_WATCHDOG.minFps) {
+        slowWindows = 0;
+        return;
+      }
+      if (++slowWindows >= QUALITY_WATCHDOG.slowWindowsToDrop) {
+        slowWindows = 0;
+        qualityLevel++;
+        applyQuality();
+      }
+    }
+
     /* ── FOV helper ── */
     function updateCameraFov() {
       const aspect = window.innerWidth / window.innerHeight;
@@ -437,8 +483,7 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       updateCameraFov();
       renderer.setSize(window.innerWidth, window.innerHeight);
       composer.setSize(window.innerWidth, window.innerHeight);
-      bloomPass.setSize(window.innerWidth / 2, window.innerHeight / 2);
-      renderer.setPixelRatio(isMobileDevice ? 1.0 : Math.min(window.devicePixelRatio, 2));
+      applyQuality();
       measureScrollRange();
     };
     const onResize = () => {
@@ -541,6 +586,7 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       const now = performance.now();
       const dt = Math.min((now - lastFrameTime) / 1000, 0.1);
       lastFrameTime = now;
+      sampleFrameRate(now);
 
       uTime.value += dt;
 
@@ -611,11 +657,9 @@ export function useCosmicScene(hostRef: React.RefObject<HTMLDivElement | null>) 
       glowMesh.quaternion.copy(camera.quaternion);
 
       // ── Render ──
-      if (isMobileDevice) {
-        renderer.render(scene, camera);
-      } else {
-        composer.render();
-      }
+      // Always through the composer: the direct-render path phones used to take
+      // skipped tone mapping's companion bloom, so their stars came out flat.
+      composer.render();
 
       animId = requestAnimationFrame(renderFrame);
     }
