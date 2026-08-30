@@ -138,17 +138,13 @@ export function SiteHeader({ isFixed = false }: SiteHeaderProps) {
                 <nav className="mt-3 flex flex-col gap-2">
                   {MEGA_LINKS.map((link) => {
                     const isActive = currentPath === link.href;
-                    return (
-                      <Link
-                        key={link.label}
-                        to={link.href}
-                        onClick={() => setOpen(false)}
-                        className={`group flex items-center justify-between rounded-xl border p-4 transition-all ${
-                          isActive
-                            ? "border-indigo-500/50 bg-indigo-600/15 text-white"
-                            : "border-white/8 bg-white/[0.02] text-white/80 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
-                        }`}
-                      >
+                    const className = `group flex items-center justify-between rounded-xl border p-4 transition-all ${
+                      isActive
+                        ? "border-indigo-500/50 bg-indigo-600/15 text-white"
+                        : "border-white/8 bg-white/[0.02] text-white/80 hover:border-white/20 hover:bg-white/[0.06] hover:text-white"
+                    }`;
+                    const content = (
+                      <>
                         <div className="flex items-center gap-4">
                           <span className="font-mono text-xs font-semibold text-indigo-400">
                             {link.num}
@@ -158,6 +154,30 @@ export function SiteHeader({ isFixed = false }: SiteHeaderProps) {
                           </span>
                         </div>
                         <ArrowUpRight className="size-5 opacity-40 transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:opacity-100" />
+                      </>
+                    );
+                    if (link.external) {
+                      return (
+                        <a
+                          key={link.label}
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={() => setOpen(false)}
+                          className={className}
+                        >
+                          {content}
+                        </a>
+                      );
+                    }
+                    return (
+                      <Link
+                        key={link.label}
+                        to={link.href}
+                        onClick={() => setOpen(false)}
+                        className={className}
+                      >
+                        {content}
                       </Link>
                     );
                   })}
