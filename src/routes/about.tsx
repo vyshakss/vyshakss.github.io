@@ -39,19 +39,16 @@ export function AboutPage() {
       name: "Dr. Sarath Chandra K.",
       role: "Faculty Incharge",
       initials: "SK",
-      dept: "Engineering Leadership",
     },
     {
       name: "Dr. Jincy Cherian",
       role: "Faculty Incharge",
       initials: "JC",
-      dept: "Academic Coordinator",
     },
     {
       name: "Dr. Anil Melwyn Rego",
       role: "Faculty Incharge",
       initials: "AR",
-      dept: "Faculty Convener",
     },
   ];
 
@@ -60,13 +57,11 @@ export function AboutPage() {
       name: "Adisankar KB",
       role: "Student Coordinator",
       initials: "AS",
-      dept: "Overall Management & Operations",
     },
     {
       name: "Bettina Sony",
       role: "Student Coordinator",
       initials: "BS",
-      dept: "Events & Public Relations",
     },
   ];
 
@@ -94,7 +89,7 @@ export function AboutPage() {
         {/* About Hero Section */}
         <div className="mx-auto max-w-4xl px-5 text-center sm:px-8">
           <div className="inline-flex items-center gap-2 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-4 py-1.5 text-xs font-semibold tracking-wider text-indigo-300 uppercase">
-            <Sparkles className="size-3.5" /> CHRIST (Deemed to be University)
+            <Sparkles className="size-3.5" /> CHRIST (Deemed to be University), Kengeri Campus
           </div>
           <h1 className="font-display mt-5 text-4xl font-bold tracking-tight text-white sm:text-6xl">
             About Magnovite
@@ -246,7 +241,6 @@ export function AboutPage() {
                   </div>
                   <h4 className="font-display mt-4 text-base font-bold text-white">{f.name}</h4>
                   <span className="mt-1 text-xs font-semibold text-indigo-400">{f.role}</span>
-                  <p className="mt-2 text-xs text-white/60">{f.dept}</p>
                 </div>
               ))}
             </div>
@@ -269,7 +263,6 @@ export function AboutPage() {
                   <div>
                     <h4 className="font-display text-base font-bold text-white">{s.name}</h4>
                     <span className="text-xs font-semibold text-violet-400">{s.role}</span>
-                    <p className="mt-1 text-xs text-white/60">{s.dept}</p>
                   </div>
                 </div>
               ))}

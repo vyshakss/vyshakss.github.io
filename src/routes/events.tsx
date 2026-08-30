@@ -194,7 +194,7 @@ export function EventsPage() {
                 <ArrowLeft className="size-4" /> Back to All Events
               </button>
               <span className="glass-pill border-indigo-500/30 bg-indigo-950/40 px-4 py-1.5 text-xs font-semibold tracking-wider text-indigo-300 uppercase">
-                {currentEvent.category} • {currentEvent.department}
+                {currentEvent.department}
               </span>
             </div>
 
@@ -470,9 +470,6 @@ export function EventsPage() {
                       }}
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[#06080e] via-transparent to-transparent" />
-                    <span className="glass-pill absolute top-3 right-3 px-3 py-1 text-[0.65rem] font-bold tracking-wider text-indigo-300 uppercase">
-                      {evt.category}
-                    </span>
                   </div>
 
                   <div className="flex flex-1 flex-col p-6">

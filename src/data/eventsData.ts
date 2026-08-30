@@ -217,9 +217,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSc65v6inFjiO8l4TDoU8rXNRjPNZLLi07flASttEsurC5m6cw/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Blessing Roshan",
-        "phone": "7810008415",
-        "email": "blessing.roshan@btech.christuniversity.in",
+        "name": "Bhavya",
+        "phone": "9251116547",
+        "email": "bhavya@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
@@ -520,12 +520,6 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "name": "Dr. Umesh V",
         "phone": "9164368155",
         "email": "umesh.v@christuniversity.in",
-        "role": "Faculty POC"
-      },
-      {
-        "name": "Dr Jangam Sasidhar",
-        "phone": "8884639888",
-        "email": "sasidhar.jangam@christuniversity.in",
         "role": "Faculty POC"
       }
     ]
@@ -953,12 +947,6 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "phone": "7008561379",
         "email": "amruta.rout@christuniversity.in",
         "role": "Faculty POC"
-      },
-      {
-        "name": "Dr Sajna Parimita Panigrahi",
-        "phone": "8123567185",
-        "email": "sajna.panigrahi@christuniversity.in",
-        "role": "Faculty POC"
       }
     ]
   },
@@ -1000,9 +988,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "role": "Student POC"
       },
       {
-        "name": "Jiss James",
-        "phone": "8848924982",
-        "email": "jiss.james@btech.christuniversity.in",
+        "name": "Kishor",
+        "phone": "9944381104",
+        "email": "kishor@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
@@ -1047,9 +1035,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSfqc9fnzO9Jtc_vdqONaA-gGS5yvyyPS05yBYVUWnU7C_-dow/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Dakshan S",
-        "phone": "7639032960",
-        "email": "Dakshan.s@arch.christuniversity.in",
+        "name": "Maham",
+        "phone": "9555916505",
+        "email": "maham@arch.christuniversity.in",
         "role": "Student POC"
       },
       {
@@ -1059,9 +1047,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "role": "Student POC"
       },
       {
-        "name": "Prof. Apeksha S J",
-        "phone": "9972971559",
-        "email": "apeksha.sj@christuniversity.in",
+        "name": "Prof. Rashmi Pai",
+        "phone": "9481943788",
+        "email": "rashmi.pai@christuniversity.in",
         "role": "Faculty POC"
       }
     ]
@@ -1538,7 +1526,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       },
       {
         "name": "Dr. Aneesh Jose",
-        "phone": "9986429290",
+        "phone": "9535339545",
         "email": "aneesh.jose@christuniversity.in",
         "role": "Faculty POC"
       }
@@ -1746,9 +1734,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "role": "Student POC"
       },
       {
-        "name": "Dr. Bejoy BJ",
-        "phone": "8281300742",
-        "email": "bejoy.bj@christuniversity.in",
+        "name": "Dr. Sherin Paul",
+        "phone": "9385446508",
+        "email": "shein98@gmail.com",
         "role": "Faculty POC"
       }
     ]
@@ -1968,7 +1956,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "coordinators": [
       {
         "name": "Saud Khan",
-        "phone": "7019039788",
+        "phone": "9019039788",
         "email": "saud.khan@btech.christuniversity.in",
         "role": "Student POC"
       },
@@ -2241,15 +2229,15 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSfqcmfUY0RycwgKDs6ieUBJ9V4ZcwJb7tbKZJCGHkMNH8gxfw/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Vora Chanchal",
-        "phone": "8160556005",
-        "email": "vora.chanchal@btech.christuniversity.in",
+        "name": "Joe Francis Sebastian",
+        "phone": "8951982062",
+        "email": "joe.francis@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
-        "name": "Suraj Adhikari",
-        "phone": "6361038223",
-        "email": "suraj.adhikari@btech.christuniversity.in",
+        "name": "Debayan Ghose",
+        "phone": "8867727460",
+        "email": "debayan.ghose@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
@@ -2297,21 +2285,21 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSejeMwRkTbci9NphLCRNS9ChSH_NzCLlDg_kvJ2j5_0FVuPaw/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Joe Francis Sebastian",
-        "phone": "8951982062",
-        "email": "joe.francis@btech.christuniversity.in",
+        "name": "Vora Chanchal",
+        "phone": "8160556005",
+        "email": "vora.chanchal@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
-        "name": "Debayan Ghose",
-        "phone": "8867727460",
-        "email": "debayan.ghose@btech.christuniversity.in",
+        "name": "Suraj Adhikari",
+        "phone": "6361038223",
+        "email": "suraj.adhikari@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
-        "name": "Dr. Sherin Paul",
-        "phone": "9385446508",
-        "email": "shein98@gmail.com",
+        "name": "Dr. Bejoy BJ",
+        "phone": "8281300742",
+        "email": "bejoy.bj@christuniversity.in",
         "role": "Faculty POC"
       }
     ]
@@ -2662,12 +2650,6 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "name": "Dr. Vinay Jha Pillai",
         "phone": "9164076123",
         "email": "vinay.pillai@christuniversity.in",
-        "role": "Faculty POC"
-      },
-      {
-        "name": "Mr. Geou Akshil",
-        "phone": "8861315195",
-        "email": "geou.akshil@christuniversity.in",
         "role": "Faculty POC"
       }
     ]
