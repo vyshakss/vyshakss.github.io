@@ -141,7 +141,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "All participating teams receive the same grid scenario and technical data. The scenario may include multiple generation sources, transmission/distribution lines, transformers and different classes of loads such as hospitals, water supply, residential demand, industry and EV charging. Teams must construct the grid model using an approved power-system simulation platform and achieve a valid base operating condition. They must check generation-demand balance, bus voltages, line loading and critical-load supply. Teams submit their model and required simulation results within the allotted time."
+        "desc": "Participants report to the AutoCAD lab at the scheduled time and are briefed on the design problem.\nA planning/design brief (site layout, building plan, or structural drawing task) is revealed at the start of the round.\nParticipants have a fixed time limit (3 hours) to complete the design in AutoCAD.\nCompleted drawings are submitted digitally at the end of the round for evaluation.\nA panel of faculty/industry judges shortlists and scores the top entries; winners are announced after judging."
       }
     ],
     "rules": [
@@ -217,9 +217,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSc65v6inFjiO8l4TDoU8rXNRjPNZLLi07flASttEsurC5m6cw/viewform?usp=publish-editor",
     "coordinators": [
       {
-        "name": "Bhavya",
+        "name": "Bhavya Somashekhar",
         "phone": "9251116547",
-        "email": "bhavya@btech.christuniversity.in",
+        "email": "bhavya.somashekhar@btech.christuniversity.in",
         "role": "Student POC"
       },
       {
@@ -242,7 +242,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "A creative clay modelling challenge where participants transform ideas into unique three-dimensional forms through imagination, skill, and craftsmanship.",
     "category": "Design",
     "department": "School of Architecture",
-    "overview": "About the Event:\n\nBattle Clay is a creative and engaging clay modelling competition that brings together imagination, creativity, and hands-on skills. Participants are challenged to transform their ideas into meaningful three-dimensional forms using clay as the primary medium. The event encourages experimentation, innovative thinking, and artistic expression while developing patience, precision, and craftsmanship. With a limited time to create, participants must think creatively and work efficiently to bring their concepts to life. Battle Clay provides an exciting platform for students to explore form, texture, and structure while competing with others. It celebrates creativity, encourages collaboration, and turns simple ideas into tangible creations.",
+    "overview": "About the Event:\n\nBattle Clay is a creative and engaging clay modelling competition that brings together imagination, creativity, and hands-on skills. Participants are challenged to transform their ideas into meaningful three-dimensional forms using clay as the primary medium. The event encourages experimentation, innovative thinking, and artistic expression while developing patience, precision, and craftsmanship. With a limited time to create, participants must think creatively and work efficiently to bring their concepts to life. Battle Clay provides an exciting platform for students to explore form, texture, and structure while competing with others. It celebrates creativity, encourages collaboration, and turns simple ideas into tangible creations. In addition to the sculpting challenge, this edition introduces a live pitch segment, in which each team must present and persuasively market their finished creation to a panel of judges, combining artistic craftsmanship with the art of communication and persuasion.",
     "stages": [
       {
         "title": "Event Structure",
@@ -261,6 +261,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       "•Each team must maintain a clean and safe working area.",
       "•  The sculpture must be completed and submitted before the submission deadline.",
       "• Each team must present their concept briefly to the jury.",
+      "• Each team will be allotted a strict 3-minute window to pitch and promote their sculpture to the judges; the time limit will be strictly enforced, and teams exceeding it may be stopped or penalised at the judges' discretion.",
       "• Any form of copying or direct replication of an existing artwork will lead to disqualification.",
       "• The organizers' and jury's decisions will be final and binding."
     ],
@@ -299,32 +300,27 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "A people-powered adventure featuring escape rooms, trust challenges, impact missions, and crisis simulations, where every decision shapes your team, your community, and your success",
     "category": "Management",
     "department": "MBA",
-    "overview": "BMT - The Altitude Project is a two-day, cross-functional business management simulation in which each three-member team assumes the role of an Integration Committee overseeing a high-stakes, real-world-inspired merger: an international airline acquiring a luxury hotel chain. Across eight escalating rounds spanning Marketing, Finance, HR, Consulting, Corporate Strategy and Crisis Communication, teams move from structured Day-1 case rounds through an overnight strategic-planning sprint into two live elimination gates and a press-conference finale. The format deliberately tests judgement, communication and composure under pressure rather than narrow technical skill, making it equally accessible to students of Management, Commerce, Engineering, Psychology and Architecture. Participants are expected to leave with a sharpened ability to make decisions under ambiguity, defend a position before a hostile panel, and manage competing stakeholder interests - the core instincts of real organisational leadership.",
+    "overview": "The Corporate Crucible is a two-day, high-intensity Best Management Team (BMT) competition designed to test how effectively teams think, decide, communicate and lead under pressure. Participants step into the shoes of business leaders navigating a dynamic corporate environment where strategy meets uncertainty, decisions carry consequences, and teamwork determines success. The competition brings together students from diverse academic backgrounds to demonstrate their ability to analyse complex situations, solve business problems, manage competing priorities and present compelling strategic solutions. More than a test of business knowledge, The Corporate Crucible is a test of leadership instinct — challenging teams to remain agile, collaborative and decisive when the stakes are high. Participants will leave the Crucible with more than a winning title — they will experience what it takes to think like leaders, act like strategists and perform as one team.",
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "The event runs across two days, structured as a continuous merger-integration narrative. Day 1 comprises four non-eliminating functional rounds that build each team’s cumulative standing. An overnight strategic-planning round (Round 5) follows, also non-eliminating. Day 2 opens with two sequential elimination gates before the finale."
+        "desc": "The competition unfolds across two action-packed days, taking participants through an immersive corporate experience.\nTeams will encounter a series of strategic, analytical, creative and leadership-driven challenges designed to evaluate different dimensions of managerial capability.\nThroughout the competition, participants will be required to collaborate effectively, respond to evolving situations, make informed decisions and communicate their ideas with clarity and conviction.\nThe event culminates in a high-stakes leadership challenge, where the strongest teams will compete for the title of Best Management Team."
       }
     ],
     "rules": [
-      "Each team must consist of exactly three participants, acting jointly as the Integration Committee for the full duration of the event.",
-      "All three members of a team must be from the same participating institution, subject to Magnovite regulations.",
+      "Each team must consist of exactly three participants.",
+      "All three members of a team must be from the same participating institution.",
       "The event is open to both undergraduate and postgraduate students across all academic disciplines.",
-      "The competition is non-technical: all case data, financial figures and reference frameworks required for each round are supplied by the organisers; no external material may be brought in.",
-      "The three members who qualify from Day 1 to the overnight round, and from the overnight round into Day 2, must remain the same; substitutions are not permitted except where fest rules explicitly allow it.",
-      "Round 1 (Quiz) results determine each team’s Sabotage Currency, which may be spent ahead of Round 5 to purchase a disadvantage against a rival team through the sealed, anonymous bidding process described in Round 5.",
-      "A maximum of one Sabotage disadvantage may be purchased against any single rival team.",
-      "In live rounds (Rounds 4, 5, 6, 7 and 8), all three teammates must be present for the full duration, even where only one member is actively speaking at a given moment.",
-      "In Round 6, no teammate may assist or coach another teammate during that teammate’s live call.",
-      "In Round 7, panellists may redirect a question to any teammate at any time; the addressed teammate must respond without inter-team consultation.",
-      "Twist cards, correction packets and curveballs introduced mid-round are final once revealed and must be incorporated into the team’s response.",
-      "Negative marking, where applicable, will be announced by the organisers before the start of the relevant round.",
-      "All written submissions (plans, memos) must be handed in within the announced time limit; no submissions will be accepted thereafter.",
-      "Use of mobile phones, smart devices or unauthorised material during any round is prohibited unless explicitly permitted by the organisers for that round.",
-      "Any form of plagiarism, unauthorised assistance, disruptive conduct or misconduct may lead to disqualification of the team.",
-      "In the event of a tie at either elimination gate (Round 6 or Round 7), the organisers will conduct a sudden-death tie-break at their discretion.",
-      "Participants must be available for the full duration of both days, including the overnight Round 5.",
-      "The decision of the judging panel and organising committee on all matters, including scoring and eliminations, will be final and binding."
+      "Teams must be available for the entire duration of the two-day competition.",
+      "The competition is designed to be non-technical; all necessary information and materials required for the challenges will be provided by the organisers.",
+      "Participants are expected to demonstrate teamwork, leadership, strategic thinking, problem-solving and effective communication.",
+      "All team members must actively contribute throughout the competition.",
+      "Mobile phones, smart devices or unauthorised external material may not be used unless explicitly permitted by the organisers.",
+      "Any form of plagiarism, unauthorised assistance, disruptive conduct or misconduct may result in disqualification.",
+      "All submissions must be completed within the time limit specified by the organisers. Late submissions will not be accepted.",
+      "Any additional instructions applicable to a particular challenge will be communicated by the organisers before its commencement.",
+      "The decision of the judging panel and organising committee regarding scoring, rankings and eliminations shall be final and binding.",
+      "Participants must adhere to all Magnovite and Christ University regulations throughout the event."
     ],
     "faqs": [],
     "prizePool": "22K",
@@ -414,11 +410,11 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "The code is flawed. The clock is ticking.Bring the logic to life.",
     "category": "Engineering",
     "department": "Electronics and Communication Engineering (ECE)",
-    "overview": "BitForge is a high-energy, multi-round digital logic and hardware engineering challenge designed to bridge the gap between theoretical concept and practical execution. The event tests number system conversions, logic gate optimization, cryptographic problem-solving, and live hardware prototyping.\n\nStarting with a fast-paced cryptographic and riddle-based paper sprint, teams must decode a chain of interlinked puzzles — hexadecimal riddles, direction-finding clues, and a logic gate maze — before moving on to a three-stage classical cryptography round covering Caesar, Vigenère, and Playfair ciphers. Finalist teams then bring abstract paper logic to life by manually wiring physical Digital IC Trainer Kits under a ticking clock, before the grand finale tests their ability to design and optimize a circuit against a live fluctuating cost market. The event has a low barrier to entry but a high skill ceiling, making it challenging for engineering students while remaining intuitive and playable.",
+    "overview": "BitForge is a high-energy, multi-round digital logic and hardware engineering challenge designed to bridge the gap between theoretical concept and practical execution. The event tests number system conversions, logic gate optimization, cryptographic problem-solving, and live hardware prototyping.\n\nStarting with a fast-paced cryptographic and riddle-based paper sprint, teams must decode a chain of interlinked puzzles — hexadecimal riddles, direction-finding clues, and a logic gate maze — before moving on to a three-stage classical cryptography round covering Caesar, Vigenère, and Playfair ciphers. Finalist teams then bring abstract logic to life by manually wiring physical Digital IC Trainer Kits under a ticking clock, before the grand finale challenges them to solve a sequence of deduction, decoding, and logic puzzles. The event has a low barrier to entry but a high skill ceiling, making it challenging for engineering students while remaining intuitive and playable.",
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "The event consists of a 4-round eliminator structure. Teams progress by successfully completing the technical objectives within the allocated timeframes. All necessary baseline principles are provided in a specialized “Hacker’s Cheat Sheet” at the start, ensuring that logic and execution triumph over mere memorization.\nEvent Date: 15th September 2026.  Venue: Department of ECE, CHRIST (Deemed to be University), Kengeri Campus.\nReporting & Registration: Participants report to the venue, complete on-site verification with their college/school ID, and receive their team allotment and seating.\nInauguration & Briefing: A short welcome, an overview of the competition flow, distribution of the Hacker’s Cheat Sheet, a walkthrough of the rules, and lab-safety guidelines for the hardware round."
+        "desc": "The event consists of a 4-round eliminator structure. Teams progress by successfully completing the technical objectives within the allocated timeframes. All necessary baseline principles are provided in a specialized “Hacker’s Cheat Sheet” at the start, ensuring that logic and execution triumph over mere memorization.\nEvent Date: 16th September 2026.  Venue: Department of ECE, CHRIST (Deemed to be University), Kengeri Campus.\nReporting & Registration: Participants report to the venue, complete on-site verification with their college/school ID, and receive their team allotment and seating.\nInauguration & Briefing: A short welcome, an overview of the competition flow, distribution of the Hacker’s Cheat Sheet, a walkthrough of the rules, and lab-safety guidelines for the hardware round."
       }
     ],
     "rules": [
@@ -648,7 +644,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "“A competitive chess showdown where participants put their strategic thinking, tactical skills, and decision-making to the test in a battle of intellect and precision.”",
     "category": "Arts & Humanities",
     "department": "Science & Humanities",
-    "overview": "A competitive chess showdown where participants put their strategic thinking, tactical skills, and decision-making to the test in a battle of intellect and precision. Players will compete across timed rounds demonstrating acute concentration, board vision, and mastery under pressure.",
+    "overview": "Chess Grandmaster is a competitive chess tournament designed to celebrate strategic thinking, discipline, and composure under pressure. The event brings together players of varying skill levels to compete in a structured, FIDE-regulated environment that mirrors the rigor of professional chess. Centered on the theme of mastery — earning the title of \"Grandmaster\" through skill, patience, and calculated risk — the tournament turns a quiet, cerebral game into an engaging, spectator-friendly competition. Beyond entertainment, it offers genuine learning value: participants sharpen decision-making, foresight, and mental resilience, while spectators gain exposure to the elegance of tournament-level play. The event is expected to strengthen campus chess culture, encourage regular practice, and surface standout talent for future competitive circuits — delivering a well-organized experience for players and audience alike.",
     "stages": [],
     "rules": [
       "Players alternate turns, White moving first; each piece moves per the FIDE Laws of Chess.",
@@ -890,7 +886,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "Qualification Round\nEach team gets two timed attempt to complete the maze. The best time out of 2 will be chosen\nTeams must pass through all designated checkpoints in the correct order.\nTouching an obstacle results in a time penalty.\nFailure to pass through a checkpoint may result in a penalty or disqualification of the run.\nFinal Round\nThe fastest qualifying teams proceed to the final.\nFinalists receive two timed attempts.\nThe best valid time will be considered for the final ranking.\nThe participant with the fastest clean/penalty-adjusted time wins."
+        "desc": "Qualification Round\nAll registered teams participate in Round 1 on a course of simple obstacles testing basic drone control, navigation, and precision. Each team gets two timed attempts; the better valid time is taken as the team's Round 1 score. Teams must pass through all designated checkpoints in the specified sequence. Touching an obstacle results in a time penalty, and skipping or bypassing a checkpoint/obstacle may result in a penalty or disqualification of that attempt. The teams with the best scores qualify for the Knockout Round.\nKnockout Round\nOnly the teams qualifying from Round 1 participate, on a course with more complex obstacles, narrower passages, sharper turns, and increased precision requirements. Each qualifying team gets two timed attempts, with the better valid time counted for the Round 2 ranking. The number of teams advancing to the Final is based on the fastest penalty-adjusted times, and teams failing to meet the required cutoff are eliminated.\nFinal Round\nOnly the finalists from Round 2 participate, on the most challenging combination of obstacles, requiring high levels of speed, precision, control, and reaction. Each finalist receives two timed attempts; the better valid time is considered for the Final ranking. The final score is the completion time plus applicable penalties, and the participant/team with the fastest penalty-adjusted valid time is declared the winner."
       }
     ],
     "rules": [
@@ -974,7 +970,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "ROUND 2 – GRID CRISIS"
+        "desc": "Teams register and are briefed on the item/structure they must create using waste materials.\nEach team is given access to a common pool of waste materials, each carrying a fixed point value.\nTeams have a fixed time to design and build the assigned item; returning (past-year) participants are given a small time-weightage adjustment.\nEvery material used is recorded, and its corresponding points are deducted from the team's base score.\nFinal scores (base score minus material-usage deductions, plus creativity/task-accuracy marks) determine the winner."
       }
     ],
     "rules": [
@@ -1035,7 +1031,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       " The theme will be announced at the beginning of the event.",
       " Participants must complete their artwork within the given time limit.",
       " Only the materials permitted by the organisers may be used.",
-      " Any form of plagiarism or copping will lead to disqualification.",
+      " Any form of plagiarism or copying will lead to disqualification.",
       " The jury’s decision will be final.",
       " Participants are responsible for their own materials and belongings."
     ],
@@ -1138,7 +1134,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "A five-stage technical escape mission where teams recover hidden key fragments through media analysis, decoding, AI prompting, and CTF challenges before combining them to unlock the final system.",
     "category": "Coding & Tech",
     "department": "AI and Data Science Engineering (ADSE)",
-    "overview": "Final Override is a five-stage technical escape mission where teams must recover hidden key fragments through media analysis, decoding, AI prompting, and logical reasoning, before combining them to unlock a final system. It is designed for participants from technical backgrounds who enjoy structured problem-solving under time pressure./Teams progress sequentially through five connected stages, each testing a different technical skill area. As they move forward, they must extract clues from audio and video files, decode encrypted text, craft precise prompts for a locked AI system, solve logic-based patterns, and finally merge all recovered fragments to complete a last verification task that unlocks the system./The event tests observation, decoding logic, prompt engineering, pattern recognition, and integrative reasoning, while also introducing a layer of deliberately misleading clues that challenge participants to think critically rather than rely blindly on tools. It offers strong learning value in digital analysis and AI interaction, along with high entertainment value through its escape-mission format, and is expected to leave participants with a practical understanding of structured technical problem-solving.",
+    "overview": "Final Override is a five-stage technical escape mission where teams must recover hidden key fragments through media analysis, decoding, AI prompting, and CTF-based technical challenges, before combining them to unlock a final system. It is designed for participants from technical backgrounds who enjoy structured problem-solving under time pressure.\n\nTeams progress sequentially through five connected stages, each testing a different technical skill area. As they move forward, they must extract clues from audio and video files, decode encrypted text, craft precise prompts for a locked AI system, solve CTF-style flag-hunt challenges, and finally merge all recovered fragments to complete a last verification task that unlocks the system.\n\nThe event tests observation, decoding logic, prompt engineering, technical problem-solving, and integrative reasoning, while also introducing a layer of deliberately misleading clues that challenge participants to think critically rather than rely blindly on tools. It offers strong learning value in digital analysis and AI interaction, along with high entertainment value through its escape-mission format, and is expected to leave participants with a practical understanding of structured technical problem-solving.",
     "stages": [
       {
         "title": "Event Structure",
@@ -1148,7 +1144,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "rules": [
       "A. Participation",
       "Participants from technical academic backgrounds are eligible to participate. Prior expert-level knowledge is not mandatory; however, participants should be comfortable with basic computer use, analytical reasoning, and beginner to intermediate technical tasks.",
-      "Every team must consist of exactly 4 participants. Teams with fewer or more members will not be permitted to compete.",
+      "Every team must consist of 3–4 participants.",
       "All team members must be present for the entire duration of their assigned event slot, from reporting to final result announcement.",
       "B. Gameplay",
       "Teams must complete each stage strictly in the given sequence and cannot skip ahead or attempt stages out of order.",
@@ -1820,11 +1816,11 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "Control, compete, and score your way to victory with your own football-playing robot.",
     "category": "Engineering",
     "department": "Mechanical Engineering",
-    "overview": "The Department of Mechanical and Automobile Engineering is thrilled to present RC Robosoccer. RoboSoccer is a robot-based soccer competition where teams build and program robots to play soccer on a defined field. The objective is to score goals against the opposing team within a set time. Robots must follow specific size and weight guidelines. Matches are divided into halves, and robots can operate autonomously or semi-autonomously. Teams earn points by scoring goals, and penalties are given for fouls or rule violations. The event emphasises technical skills in robotics, programming, and strategic gameplay, making it a challenging and exciting test of engineering prowess.",
+    "overview": "The Department of Mechanical is thrilled to present RC Robosoccer. RC RoboSoccer is a robot-based soccer competition where teams build and program robots to play soccer on a defined field. The objective is to score goals against the opposing team within a set time. Robots must follow specific size and weight guidelines. Matches are divided into halves, and robots can operate autonomously or semi-autonomously. Teams earn points by scoring goals, and penalties are given for fouls or rule violations. The event emphasises technical skills in robotics, programming, and strategic gameplay, making it a challenging and exciting test of engineering prowess.",
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "Teams begin with their validated base grid and are then subjected to a sequence of controlled contingencies. Possible events include a reduction in solar generation, loss of a transmission line, generator outage, increase in demand or restrictions on critical-load shedding. Teams receive a limited time for each contingency and must modify their grid operation or control strategy to maintain secure supply. Their response may involve generation redispatch, rerouting of power, controlled load shedding or other technically justified actions. Each scenario is evaluated using measurable system performance parameters."
+        "desc": "Details will be announced soon."
       }
     ],
     "rules": [
@@ -1903,7 +1899,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "A sustainable fashion design challenge where participants transform unconventional materials, spaces, and cultural influences into innovative wearable designs.",
     "category": "Design",
     "department": "School of Architecture",
-    "overview": "Revival Outlook is the flagship fashion design competition of Magnovite, challenging participants to reinterpret spaces, materials, and cultural narratives into bold, wearable expressions of design. It encourages sustainable thinking and experimentation with unconventional resources, blurring the boundaries between architecture and fashion.",
+    "overview": "Revival Outlook is the flagship fashion design competition of Magnovite, challenging participants to reinterpret spaces, materials, and cultural narratives into bold, wearable expressions of design. It encourages sustainable thinking and experimentation with unconventional resources, blurring the boundaries between design and fashion.",
     "stages": [
       {
         "title": "Event Structure",
@@ -1912,11 +1908,11 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     ],
     "rules": [
       "Theme Adherence: For this competition, participants are challenged to interpret the theme \"CODE COUTURE\" and present a fashion look or collection that reflects their own vision of how technology and AI are influencing the future of fashion.",
-      "Time Limit: Each team is strictly allotted 6 minutes total (including setup, performance, and clearance). Exceeding the time limit will result in a 5-mark penalty per extra minute.",
+      "Time Limit: Each team is strictly allotted 6 minutes total (5+1, including setup, performance, and clearance). Exceeding the time limit will result in a 5 mark penalty per extra minute. Open to all students. Team size: 8–15 members.",
       "Originality: Costumes and garments must be original creations. Pre-designed or commercially rented readymade outfits are strictly prohibited.",
       "Props Policy: Props are allowed but must be lightweight and easy to carry on and off stage. Use of open flames, water, powders, glass, or any messy/hazardous substances that alter the stage surface is strictly forbidden.",
-      "Audio-Visual Tracks: High-quality music tracks must be submitted in advance on a USB drive. Tracks containing vulgarity or offensive language will lead to immediate disqualification.",
-      "Code of Conduct: Vulgarity, obscenity, or inappropriate attire on stage will lead to immediate disqualification. Christ appropriate clothing is strictly to be followed.",
+      "Audio-Visual Tracks: High-quality music tracks must be submitted in advance on a USB drive, 1 day before the event. Tracks containing vulgarity or offensive language will lead to immediate disqualification.",
+      "Code of Conduct: Vulgarity, obscenity, or inappropriate attire on stage will lead to immediate disqualification. Participants must adhere to a decent and appropriate dress code throughout the event.",
       "Decision: The decision of the judging panel is final and binding on all participating teams.",
       "Dress Code: Sleeveless garments or outfits above knee length are not permitted unless skin tights are worn underneath (applicable to all genders). Costumes should not be revealing in any form."
     ],
@@ -1955,11 +1951,11 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "Shake It, Don’t Break It – A hands-on challenge where participants build structures that withstand simulated earthquakes.",
     "category": "Engineering",
     "department": "Civil Engineering",
-    "overview": "Seismogami is an earthquake-resistant structure design competition inspired by the acclaimed Cognizance event held at IIT Roorkee. Teams are challenged to design and construct a scaled building model using only ice-cream sticks and adhesive, applying core principles of structural and seismic engineering. Completed models are tested on a simulated shake table subjected to increasing seismic frequencies, and the team whose structure withstands the vibrations the longest without collapsing is declared the winner. The event gives students hands-on exposure to computational structural mechanics, load distribution, and earthquake-resistant design, blending engineering theory with a competitive, build-and-test format.",
+    "overview": "Teams are challenged to design and construct a scaled building model using only ice-cream sticks and adhesive, applying core principles of structural and seismic engineering. Completed models are tested on a simulated shake table subjected to increasing seismic frequencies, and the team whose structure withstands the vibrations the longest without collapsing is declared the winner. The event gives students hands-on exposure to structural mechanics, load distribution, and earthquake-resistant design, blending engineering theory with a competitive, build-and-test format.",
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "Details will be announced soon."
+        "desc": "Teams register and receive a fixed kit of ice-cream sticks and adhesive along with base dimension/height constraints.\nTeams are given a set construction time to design and build their earthquake-resistant model.\nCompleted models are inspected for compliance with size, weight and material constraints.\nEach model is mounted on a simulated shake table and subjected to progressively increasing seismic frequencies.\nThe model that withstands the vibrations for the longest duration without structural failure wins."
       }
     ],
     "rules": [
@@ -1993,7 +1989,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "role": "Student POC"
       },
       {
-        "name": "Dr Aniket",
+        "name": "Dr Aniket B",
         "phone": "9985004656",
         "email": "aniket.nitin@christuniversity.in",
         "role": "Faculty POC"
@@ -2059,7 +2055,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
   {
     "slug": "squid-game",
     "title": "Squid Game: Squad Survival",
-    "tagline": "Adapting the netflix original into a high-stakes campus competition",
+    "tagline": "Adapting the Netflix original into a high-stakes campus competition",
     "category": "Arts & Humanities",
     "department": "Science & Humanities",
     "overview": "Squid Game: Squad Survival is an adrenaline-filled team challenge inspired by popular survival games, reimagined as a safe, exciting, and strategy-driven competition. Teams face a series of physical and mental challenges, including Red Light, Green Light, Dalgona Extraction, Memory Bridge, Strategic Tug-of-War, and surprise elimination rounds, that test coordination, communication, decision-making, and resilience under pressure. Every completed challenge earns survival points, while mistakes can lead to penalties or elimination. The event emphasizes teamwork, leadership, and tactical thinking rather than individual strength alone. Combining fast-paced action with suspense and entertainment, Squad Survival delivers a thrilling experience where only the most coordinated and resourceful team earns the title of Ultimate Survivors.",
@@ -2120,7 +2116,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "Teams randomly draw an Opportunity Card and a Constraint Card, with an optional Technology/Trend Card. They develop a viable startup concept that addresses the opportunity while working within the assigned constraint. Example: an opportunity related to reducing food waste may be paired with a sustainability-focused constraint. Teams briefly present their concept to the judges.\nTeams build the identity and market positioning of the startup developed in Round 1 through elements such as brand name, tagline, value proposition, target customer and go-to-market strategy. Example: a food-waste venture may be positioned as a B2B sustainability solution."
+        "desc": "The competition begins with The Spark, where teams are challenged to identify potential in an unexpected opportunity and turn it into the foundation of a venture. In The Build, they take that initial spark further by shaping their venture, defining its identity, and making strategic choices that could determine its future. The People puts their ability to build the right team to the test, while The Numbers challenges them to step into the shoes of decision-makers, interpret business information, and determine the direction of their venture. The journey continues into The Overnight Challenge, where shortlisted teams will take their venture to the next level through a challenge that extends beyond the day's competition. Finally, The Boardroom brings everything together as teams face the unexpected, defend their decisions, and put their venture to the ultimate test before a panel of investors."
       }
     ],
     "rules": [
@@ -2141,7 +2137,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "prizePool": "22K",
     "date": "15-16 Sept 2026",
     "fee": "₹500 per team",
-    "teamSize": "2 members",
+    "teamSize": "2–3",
     "format": "Team",
     "image": "/images/events/startup-showdown.webp",
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSezVxg3D4xEwsmTCmxjXaKa3UDZmCV1w71KaDUM4oqbklhzHA/viewform?usp=publish-editor",
@@ -2791,7 +2787,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       "All dance styles and forms (western and Indian) are encouraged.",
       "All genres of music are encouraged. (western contemporary, Indian folk, Indian classical, Bollywood, hip-hop, etc.)",
       "Classical Bols and Jathis are encouraged.",
-      "Team Number Limit: 7-15.",
+      "Team Number Limit: 7-12.",
       "Time Limit: 7 + 2 minutes. (Entry to Exit Stage, Including setup)",
       "Exceeding the time limit will result in point reduction."
     ],
@@ -2839,7 +2835,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       "Explicit language/Vulgar gestures/Offensive misconduct/Inappropriate dress code are strictly prohibited.",
       "All dance styles and forms (western and Indian) are encouraged.",
       "All genres of music are encouraged. (western contemporary, Indian folk, Indian classical, Bollywood, hip-hop, etc.)",
-      "Team Number Limit: 7-15.",
+      "Team Number Limit: 6-15.",
       "Time Limit: 6 + 1 minutes on stage."
     ],
     "faqs": [],
