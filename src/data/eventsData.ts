@@ -611,7 +611,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     ],
     "faqs": [],
     "prizePool": "22K",
-    "date": "15 Sept 2026",
+    "date": "15-16 Sept 2026",
     "fee": "₹500 per team",
     "teamSize": "2-4 members",
     "format": "Team",
