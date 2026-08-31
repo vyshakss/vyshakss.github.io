@@ -2591,7 +2591,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "prizePool": "15K",
     "date": "15 Sept 2026",
     "fee": "₹200 per person",
-    "teamSize": "30(Individual)",
+    "teamSize": "Solo",
     "format": "Solo",
     "image": "/images/events/utopian-land.webp",
     "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLScAbvcMO2zxxLCQZ-G1X6nMSGpPRvvu9cIhHswFSurOSxKq3w/viewform?usp=publish-editor",
