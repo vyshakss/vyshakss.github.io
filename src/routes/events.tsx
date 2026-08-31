@@ -212,8 +212,17 @@ export function EventsPage() {
             <div className="relative mb-10 aspect-[21/9] w-full overflow-hidden rounded-2xl border border-white/10 bg-[#0f121d] shadow-2xl shadow-black/80">
               <img
                 src={currentEvent.image}
+                alt=""
+                aria-hidden="true"
+                className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-40 blur-2xl"
+                onError={(e) => {
+                  (e.target as HTMLImageElement).src = "/images/shaan-new-poster.webp";
+                }}
+              />
+              <img
+                src={currentEvent.image}
                 alt={currentEvent.title}
-                className="h-full w-full object-cover object-center"
+                className="relative h-full w-full object-contain"
                 onError={(e) => {
                   (e.target as HTMLImageElement).src = "/images/shaan-new-poster.webp";
                 }}
@@ -462,9 +471,19 @@ export function EventsPage() {
                   <div className="relative aspect-[16/10] w-full overflow-hidden bg-black/40">
                     <img
                       src={evt.image}
+                      alt=""
+                      aria-hidden="true"
+                      loading="lazy"
+                      className="absolute inset-0 h-full w-full scale-110 object-cover object-center opacity-40 blur-xl transition-transform duration-500 group-hover:scale-125"
+                      onError={(e) => {
+                        (e.target as HTMLImageElement).src = "/images/shaan-new-poster.webp";
+                      }}
+                    />
+                    <img
+                      src={evt.image}
                       alt={evt.title}
                       loading="lazy"
-                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                      className="relative h-full w-full object-contain transition-transform duration-500 group-hover:scale-105"
                       onError={(e) => {
                         (e.target as HTMLImageElement).src = "/images/shaan-new-poster.webp";
                       }}
