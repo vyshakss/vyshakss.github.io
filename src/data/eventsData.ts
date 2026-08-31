@@ -947,7 +947,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
         "role": "Student POC"
       },
       {
-        "name": "Prateekesha Mariappan",
+        "name": "Prateksha Mariappan",
         "phone": "8762766267",
         "email": "prateksha.mariappan@btech.christuniversity.in",
         "role": "Student POC"
