@@ -59,7 +59,7 @@ export function AboutPage() {
       initials: "AS",
     },
     {
-      name: "Bettina Sony",
+      name: "Bettina Soni",
       role: "Student Coordinator",
       initials: "BS",
     },

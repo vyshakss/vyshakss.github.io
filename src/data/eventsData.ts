@@ -29,7 +29,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "•  Reporting & Registration (9:00 – 9:25 AM): participants report to the venue, complete on-site verification with their college ID, and receive their system and seat allotment.\n•  Inauguration & Briefing (9:25 – 9:30 AM): a short welcome, an overview of the event flow, a walkthrough of the rules, and the lab-safety guidelines.\n•  Learning Session on Antenna Design (9:30 AM – 12:30 PM): an expert-led, hands-on training session on the ANSYS Electronics Suite (HFSS) with guided practice, covering the following topics:\n–  Basics of Antenna Theory\n–  Introduction to ANSYS HFSS\n–  Simulation of Microstrip Patch Antenna and Horn Antenna\n–  Circularly Polarised Antennas\n–  Parameter Optimization and Simulation\n–  Understanding Gain, Return Loss and Radiation Patterns\n•  Break (12:30 – 1:30 PM): systems are reset and the competition problem statement is prepared and loaded.\n•  Problem Statement Release (1:30 PM): the antenna design problem statement, along with the target performance metrics, is revealed to all teams simultaneously.\n•  Antenna Design Competition (1:30 – 4:30 PM): teams apply the concepts learned to design and simulate the given antenna using ANSYS HFSS within the allotted time; the most accurate results (closest to the target performance metrics) win.\n•  Evaluation & Results (from 4:30 PM): submissions are evaluated on simulation accuracy, design approach and time of completion; winners are announced and certificates are awarded to all participants."
+        "desc": "•  Reporting & Registration: participants report to the venue, complete on-site verification with their college ID, and receive their system and seat allotment.\n•  Inauguration & Briefing: a short welcome, an overview of the event flow, a walkthrough of the rules, and the lab-safety guidelines.\n•  Learning Session on Antenna Design: an expert-led, hands-on training session on the ANSYS Electronics Suite (HFSS) with guided practice, covering the following topics:\n–  Basics of Antenna Theory\n–  Introduction to ANSYS HFSS\n–  Simulation of Microstrip Patch Antenna and Horn Antenna\n–  Circularly Polarised Antennas\n–  Parameter Optimization and Simulation\n–  Understanding Gain, Return Loss and Radiation Patterns\n•  Break: systems are reset and the competition problem statement is prepared and loaded.\n•  Problem Statement Release: the antenna design problem statement, along with the target performance metrics, is revealed to all teams simultaneously.\n•  Antenna Design Competition: teams apply the concepts learned to design and simulate the given antenna using ANSYS HFSS within the allotted time; the most accurate results (closest to the target performance metrics) win.\n•  Evaluation & Results: submissions are evaluated on simulation accuracy, design approach and time of completion; winners are announced and certificates are awarded to all participants."
       }
     ],
     "rules": [
@@ -1220,7 +1220,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "stages": [
       {
         "title": "Event Structure",
-        "desc": "Frames Unboxed is a two-day event, with no separate rounds.\nDay 1:\nThe teams will receive an introductory briefing on the competition's rules and regulations, after which the event theme will be revealed. Thereafter, the teams can spread around campus to shoot their respective films. The teams can stay back on campus until 9:00 PM.\nDay 2:\nThe teams must submit their films on the Google Drive Link provided to them. All submissions must be done by 9:30 AM. The judge will then score the films based on the given judging criteria.\nNote: Since the submission is online, the participants are not required to be physically present on the second day."
+        "desc": "Frames Unboxed is a two-day event, with no separate rounds.\nDay 1:\nThe teams will receive an introductory briefing on the competition's rules and regulations, after which the event theme will be revealed. Thereafter, the teams can spread around campus to shoot their respective films.\nDay 2:\nThe teams must submit their films on the Google Drive Link provided to them. All submissions must be done by 9:30 AM. The judge will then score the films based on the given judging criteria.\nNote: Since the submission is online, the participants are not required to be physically present on the second day."
       }
     ],
     "rules": [
@@ -2498,11 +2498,11 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       "Participants must carry a laptop with a charger for technical analysis and investigation.",
       "Teams must report to the venue before the commencement of the event briefing.",
       "B. Gameplay",
-      "Case 1, Case 2 and Case 3 will be released at 11:00 AM, 12:00 PM and 2:00 PM, respectively.",
+      "Case 1, Case 2 and Case 3 will be released at scheduled intervals",
       "Teams may choose to investigate one, two or all three cases and may divide their time among the cases according to their strategy.",
       "Each case will contain a brief, technical objective and a package of raw technical artifacts such as logs, packet captures, metadata, hashes, network records or other relevant files.",
       "Participants may use tools such as Wireshark, CyberChef, VS Code/Notepad++, Excel/Google Sheets, and PowerShell for analysing and extracting information from the provided technical artifacts. Teams are not restricted to these tools alone.",
-      "The investigation phase will conclude at 3:00 PM. No further active investigation will be permitted after this time.",
+      "The investigation phase will conclude at designated time. No further active investigation will be permitted after this time.",
       "Teams may prepare and update their Technical Incident Report throughout the investigation.",
       "The final session will consist of a technical walkthrough and judge Q&A.",
       "Each team will initially be allotted 5 minutes for the final walkthrough and interaction, subject to adjustment based on the number of participating teams.",
