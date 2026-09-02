@@ -514,7 +514,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "teamSize": "3–4",
     "format": "Team",
     "image": "/images/events/path-pursuit.webp",
-    "registrationLink": "https://docs.google.com/forms/d/e/1FAIpQLSeXRym4GgRvWfTcTFdtDWiXcPwLpv_bJPegNSnEzcWvmU3GsQ/viewform?usp=dialog",
+    "registrationLink": "https://forms.gle/vmToijjdA1GmAdmF9",
     "coordinators": [
       {
         "name": "Mayank Ramesh",
