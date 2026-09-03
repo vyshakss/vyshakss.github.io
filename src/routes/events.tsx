@@ -271,15 +271,27 @@ export function EventsPage() {
                       Rules &amp; Guidelines
                     </h3>
                     <ul className="mt-5 space-y-3">
-                      {currentEvent.rules.map((rule, idx) => (
-                        <li
-                          key={idx}
-                          className="flex items-start gap-3 text-sm leading-relaxed text-white/80"
-                        >
-                          <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-400" />
-                          <span className="min-w-0 break-words">{rule}</span>
-                        </li>
-                      ))}
+                      {currentEvent.rules.map((rule, idx) => {
+                        const isSubheading = /^[A-Z]\.\s+\S/.test(rule) && rule.length < 60;
+                        if (isSubheading) {
+                          return (
+                            <li key={idx} className={idx > 0 ? "pt-4" : ""}>
+                              <h4 className="text-sm font-semibold uppercase tracking-wide text-indigo-300 border-b border-white/10 pb-2">
+                                {rule}
+                              </h4>
+                            </li>
+                          );
+                        }
+                        return (
+                          <li
+                            key={idx}
+                            className="flex items-start gap-3 text-sm leading-relaxed text-white/80"
+                          >
+                            <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-indigo-400" />
+                            <span className="min-w-0 break-words">{rule}</span>
+                          </li>
+                        );
+                      })}
                     </ul>
                   </div>
                 )}

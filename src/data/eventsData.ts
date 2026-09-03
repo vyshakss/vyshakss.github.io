@@ -470,7 +470,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     "tagline": "Chase the Path. Claim the Victory.",
     "category": "Engineering",
     "department": "Mechanical Engineering",
-    "overview": "PATH PURSUIT 2026 (Line Follower) is an exciting autonomous robotics competition where teams put their custom-built line-following robots to the ultimate test. Participants will navigate their robots through a challenging track by detecting and following a predefined path with minimal human intervention. The event tests engineering skills, sensor integration, programming, control systems, precision, and response time as robots tackle sharp turns, curves, and challenging sections of the track. Teams must optimize their robot's design, sensing, and control algorithms to achieve the fastest and most accurate run. With multiple rounds testing speed, consistency, and navigation, only the most precise and efficient robot will emerge victorious.",
+    "overview": "An autonomous robotics challenge where line-following robots race through complex tracks, testing precision, speed, and intelligent navigation.\nPATH PURSUIT 2026 (Line Follower) is an exciting autonomous robotics competition where teams put their custom-built line-following robots to the ultimate test. Participants will navigate their robots through a challenging track by detecting and following a predefined path with minimal human intervention. The event tests engineering skills, sensor integration, programming, control systems, precision, and response time as robots tackle sharp turns, curves, and challenging sections of the track. Teams must optimize their robot's design, sensing, and control algorithms to achieve the fastest and most accurate run. With multiple rounds testing speed, consistency, and navigation, only the most precise and efficient robot will emerge victorious.",
     "stages": [
       {
         "title": "Event Structure",
@@ -478,7 +478,7 @@ const RAW_EVENTS_DATA: EventDetail[] = [
       }
     ],
     "rules": [
-      "The team should consist of 3-4 members.",
+      "The team should consist of 2-4 members.",
       "Any number of teams can participate from a college.",
       "Only one student from the team will be able to handle the robot.",
       "A participant may not be a member of more than one team.",
@@ -509,9 +509,9 @@ const RAW_EVENTS_DATA: EventDetail[] = [
     ],
     "faqs": [],
     "prizePool": "22K",
-    "date": "15-16 Sept 2026",
+    "date": "15 Sept 2026",
     "fee": "₹800 per team",
-    "teamSize": "3–4",
+    "teamSize": "2–4",
     "format": "Team",
     "image": "/images/events/path-pursuit.webp",
     "registrationLink": "https://forms.gle/vmToijjdA1GmAdmF9",
